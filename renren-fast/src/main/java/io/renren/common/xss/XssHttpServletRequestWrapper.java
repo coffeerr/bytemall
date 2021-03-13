@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.iat.common.xss;
+package io.renren.common.xss;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -28,25 +28,14 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
-    //html过滤
-    private final static HTMLFilter htmlFilter = new HTMLFilter();
     //没被包装过的HttpServletRequest（特殊场景，需要自己过滤）
     HttpServletRequest orgRequest;
+    //html过滤
+    private final static HTMLFilter htmlFilter = new HTMLFilter();
 
     public XssHttpServletRequestWrapper(HttpServletRequest request) {
         super(request);
         orgRequest = request;
-    }
-
-    /**
-     * 获取最原始的request
-     */
-    public static HttpServletRequest getOrgRequest(HttpServletRequest request) {
-        if (request instanceof XssHttpServletRequestWrapper) {
-            return ((XssHttpServletRequestWrapper) request).getOrgRequest();
-        }
-
-        return request;
     }
 
     @Override
@@ -142,6 +131,17 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
      */
     public HttpServletRequest getOrgRequest() {
         return orgRequest;
+    }
+
+    /**
+     * 获取最原始的request
+     */
+    public static HttpServletRequest getOrgRequest(HttpServletRequest request) {
+        if (request instanceof XssHttpServletRequestWrapper) {
+            return ((XssHttpServletRequestWrapper) request).getOrgRequest();
+        }
+
+        return request;
     }
 
 }
