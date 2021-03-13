@@ -12,7 +12,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bytemall-ware</name>
 	<description>仓储服务</description>
-
+	<dependencies>
+		<dependency>
+			<groupId>com.iat.bytemall</groupId>
+			<artifactId>bytemall-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
