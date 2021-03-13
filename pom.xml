@@ -13,6 +13,9 @@
 		<module>bytemall-order</module>
 		<module>bytemall-product</module>
 		<module>bytemall-ware</module>
+		<module>renren-fast</module>
+		<module>renren-generator</module>
+		<module>bytemall-common</module>
 	</modules>
 	<name>bytemall</name>
 	<description>parent</description>
